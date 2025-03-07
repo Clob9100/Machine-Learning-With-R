@@ -15,6 +15,8 @@ This document provides an overview of four key dimensionality reduction techniqu
 
 ### Figure: SQL Projection
 ![](C:\Users\clob9\PycharmProjects\ML_R_Project\Dimensional_Reduction\Figures\SQL Data Projection (Factor 1 vs. Factor 2).png)
+![](C:\Users\clob9\PycharmProjects\ML_R_Project\Dimensional_Reduction\Figures\SQL Data Projection (Factor 1 vs. Factor 2).png "SQL porjection image")
+
 *Caption: Example of SQL projection applied to the NCI60 dataset, showing clusters of cancer types.*
 
 ---
