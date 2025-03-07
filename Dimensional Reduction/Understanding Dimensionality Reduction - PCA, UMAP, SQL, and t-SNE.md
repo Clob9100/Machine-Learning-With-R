@@ -13,8 +13,6 @@ This document provides an overview of four key dimensionality reduction techniqu
   - **Paper**: Bodelet, J., Blanc, G., Shan, J., Terrera, G.M., and Chén, O.Y., 2020. *Statistical Quantile Learning for Large, Nonlinear, and Additive Latent Variable Models*. arXiv preprint arXiv:2003.13119.
   - **GitHub**: [SQL GitHub Repository](https://github.com/jbodelet/SQL/tree/main/sql)
 
-### Figure: SQL Projection "SQL Data Projection (Factor 1 vs. Factor 2)"
-![img_1.png](img_1.png)
 ---
 
 ## 2. PCA (Principal Component Analysis)
@@ -22,10 +20,6 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Use Cases**: Data visualization, noise reduction, feature extraction.
 - **Advantages**: Simple, interpretable, computationally efficient.
 - **Limitations**: Assumes linear relationships, may not capture complex structures.
-
-### Figure: PCA Projection
-![PCA Projection](Figures/PCA%20Projection.png)
-*Caption: Example of PCA applied to the NCI60 dataset, showing the first two principal components.*
 
 ---
 
@@ -35,10 +29,6 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Advantages**: Captures complex structures, scalable, works well with high-dimensional data.
 - **Limitations**: Requires tuning of hyperparameters (e.g., `n_neighbors`, `min_dist`).
 
-### Figure: UMAP Projection
-![UMAP Projection](Figures/UMAP%20Projection.png)
-*Caption: Example of UMAP applied to the NCI60 dataset, showing clusters of cancer types.*
-
 ---
 
 ## 4. t-SNE (t-Distributed Stochastic Neighbor Embedding)
@@ -46,9 +36,6 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Use Cases**: Visualization of high-dimensional data, clustering.
 - **Advantages**: Captures local relationships, effective for visualization.
 - **Limitations**: Computationally expensive, sensitive to hyperparameters (e.g., `perplexity`).
-
-### Figure: t-SNE Projection
-*Caption: Example of t-SNE applied to the NCI60 dataset, showing clusters of cancer types.*
 
 ---
 
