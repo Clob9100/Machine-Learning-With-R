@@ -47,8 +47,6 @@ ggplot(cancer_counts, aes(x = reorder(CancerType, -Count), y = Count, fill = Can
         axis.text = element_text(size = 10)) +  # Adjust axis text size
   scale_fill_brewer(palette = "Set3")  # Use a color palette from RColorBrewer
 
-
-
 ## Create the pairs plot
 ggpairs(pairs_data,
         columns = 2:ncol(pairs_data),  # Use all feature columns
