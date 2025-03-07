@@ -14,7 +14,7 @@ This document provides an overview of four key dimensionality reduction techniqu
   - **GitHub**: [SQL GitHub Repository](https://github.com/jbodelet/SQL/tree/main/sql)
 
 ### Figure: SQL Projection
-![SQL Projection](Figures/SQL Data Projection (Factor 1 vs. Factor2).png)
+![SQL Projection](Figures/SQL%20Data%20Projection%20(Factor%201%20vs.%20Factor2).png)
 *Caption: Example of SQL projection applied to the NCI60 dataset, showing clusters of cancer types.*
 
 ---
