@@ -13,9 +13,8 @@ This document provides an overview of four key dimensionality reduction techniqu
   - **Paper**: Bodelet, J., Blanc, G., Shan, J., Terrera, G.M., and Chén, O.Y., 2020. *Statistical Quantile Learning for Large, Nonlinear, and Additive Latent Variable Models*. arXiv preprint arXiv:2003.13119.
   - **GitHub**: [SQL GitHub Repository](https://github.com/jbodelet/SQL/tree/main/sql)
 
-### Figure: SQL Projection
-![SQL image](C:\Users\clob9\PycharmProjects\ML_R_Project\Dimensional_Reduction\Figures\SQL Data Projection (Factor 1 vs. Factor 2).png)
-*Caption: Example of SQL projection applied to the NCI60 dataset, showing clusters of cancer types.*
+### Figure: SQL Projection "SQL Data Projection (Factor 1 vs. Factor 2)"
+![SQL Data Projection](Dimensional_Reduction/Figures/SQL_Data_Projection_Factor1_vs_Factor2.png)
 
 ---
 
