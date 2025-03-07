@@ -1,4 +1,4 @@
-# Dimensionality Reduction Techniques Explained: SQL, PCA, UMAP, and t-SNE
+# Dimensionality Reduction Techniques Explained
 
 This document provides an overview of four key dimensionality reduction techniques: SQL, PCA, UMAP, and t-SNE. Each method is explained in detail, along with its use cases, advantages, limitations, and references to relevant papers and resources. Figures are included to illustrate the results of each technique.
 
@@ -26,7 +26,7 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Limitations**: Assumes linear relationships, may not capture complex structures.
 
 ### Figure: PCA Projection
-![PCA Projection](Figures/PCA Projection.png)
+![PCA Projection](Figures/PCA%20Projection.png)
 *Caption: Example of PCA applied to the NCI60 dataset, showing the first two principal components.*
 
 ---
@@ -38,7 +38,7 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Limitations**: Requires tuning of hyperparameters (e.g., `n_neighbors`, `min_dist`).
 
 ### Figure: UMAP Projection
-![UMAP Projection](Figures/UMAP Projection.png)
+![UMAP Projection](Figures/UMAP%20Projection.png)
 *Caption: Example of UMAP applied to the NCI60 dataset, showing clusters of cancer types.*
 
 ---
@@ -50,7 +50,7 @@ This document provides an overview of four key dimensionality reduction techniqu
 - **Limitations**: Computationally expensive, sensitive to hyperparameters (e.g., `perplexity`).
 
 ### Figure: t-SNE Projection
-![t-SNE Projection](Figures/t-SNE Projection.png)
+![t-SNE Projection](Figures/t-SNE%20Projection.png)
 *Caption: Example of t-SNE applied to the NCI60 dataset, showing clusters of cancer types.*
 
 ---
