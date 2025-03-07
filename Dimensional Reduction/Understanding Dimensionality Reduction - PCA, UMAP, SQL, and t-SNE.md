@@ -14,7 +14,7 @@ This document provides an overview of four key dimensionality reduction techniqu
   - **GitHub**: [SQL GitHub Repository](https://github.com/jbodelet/SQL/tree/main/sql)
 
 ### Figure: SQL Projection "SQL Data Projection (Factor 1 vs. Factor 2)"
-
+![img_1.png](img_1.png)
 ---
 
 ## 2. PCA (Principal Component Analysis)
