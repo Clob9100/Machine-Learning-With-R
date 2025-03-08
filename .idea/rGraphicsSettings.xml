@@ -2,10 +2,10 @@
 <project version="4">
   <component name="RGraphicsSettings">
     <option name="darkMode" value="false" />
-    <option name="height" value="378" />
-    <option name="outputDirectory" value="$PROJECT_DIR$/Dimensional Reduction/Figures" />
+    <option name="height" value="330" />
+    <option name="outputDirectory" value="$PROJECT_DIR$/supervised_and_unsupervised_machine_learning/regression" />
     <option name="resolution" value="75" />
     <option name="version" value="2" />
-    <option name="width" value="516" />
+    <option name="width" value="680" />
   </component>
 </project>

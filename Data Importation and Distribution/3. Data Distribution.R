@@ -1,9 +1,9 @@
 ## Install the required Packages
-install.packages("readxl") # Package to read Excel file
-install.packages("ggplot2") # Package to create plots
-install.packages("RColorBrewer") # Package to create color palettes
-install.packages("GGally") ## Package to create pairs plots
-install.packages("dplyr")
+# install.packages("readxl") # Package to read Excel file
+# install.packages("ggplot2") # Package to create plots
+# install.packages("RColorBrewer") # Package to create color palettes
+# install.packages("GGally") ## Package to create pairs plots
+# install.packages("dplyr"#)
 
 ## Download the required  Librairies
 library(readxl)
@@ -27,13 +27,14 @@ selected_cancers
 ## Filter the dataset to include only the selected cancer types
 filtered_data <- data[data$CancerType %in% selected_cancers, ]
 
+
 ## Count the number of samples per cancer type
 cancer_counts <- as.data.frame(table(filtered_data$CancerType))
 colnames(cancer_counts) <- c("CancerType", "Count")
 
 ## Sort cancer types by frequency (descending order)
 cancer_counts <- cancer_counts[order(-cancer_counts$Count), ]
-
+# TODO
 ## Create a barplot using ggplot2
 ggplot(cancer_counts, aes(x = reorder(CancerType, -Count), y = Count, fill = CancerType)) +
   geom_bar(stat = "identity") +  # Create barplot
@@ -67,3 +68,4 @@ ggpairs(pairs_data,
   ) +
   scale_color_brewer(palette = "Set1") +  # Use a fancy color palette for CancerType
   guides(color = guide_legend(override.aes = list(size = 4, alpha = 1)))  # Customize the legend
+
