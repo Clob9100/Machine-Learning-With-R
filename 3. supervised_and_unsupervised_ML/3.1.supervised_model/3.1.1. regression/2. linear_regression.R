@@ -56,7 +56,10 @@ colnames(df_long) <- c("Actual_CancerType", "Predicted_CancerType", "Probability
 # Print first few rows to check structure
 head(df_long)
 
-# Create a heatmap of predicted probabilities
+# -----------------------------------
+# Visualization: Heatmap of Predicted Probabilities
+# -----------------------------------
+
 ggplot(df_long, aes(x = Predicted_CancerType, y = Actual_CancerType, fill = Probability)) +
   geom_tile(color = "white") +  # Add white borders between tiles
   scale_fill_gradient(low = "lightblue", high = "darkblue") +  # Gradient color
@@ -67,7 +70,10 @@ ggplot(df_long, aes(x = Predicted_CancerType, y = Actual_CancerType, fill = Prob
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-# Create scatter plot with regression line (G4701 vs. G4700)
+# -----------------------------------
+# Visualization: Scatter Plot with Regression Line
+# -----------------------------------
+
 ggplot(df, aes(x = G4701, y = G4700)) +
   geom_point(color = "blue", alpha = 0.6, size = 5) +  # Scatter plot with transparency
   geom_smooth(method = "lm", color = "red", se = TRUE, linetype = "dashed") +  # Linear regression line
@@ -87,11 +93,13 @@ ggplot(df, aes(x = G4701, y = G4700)) +
     panel.grid.minor = element_blank()  # Remove minor grid lines
   )
 
-# Create scatter plot with regression line (colored by CancerType)
+# -----------------------------------
+# Visualization: Scatter Plot with Regression Line colored by Cancer type
+# -----------------------------------
 ggplot(df, aes(x = G4701, y = G4700, color = CancerType)) +
   geom_point(alpha = 0.8, size = 5) +  # Scatter points with transparency
-  geom_smooth(method = "lm", color = "black", se = TRUE, linetype = "dashed") +  # Regression line with confidence interval
-  scale_color_brewer(palette = "Dark2") +  # Use a visually appealing color palette
+  geom_smooth(method = "lm", color = "black", se = TRUE, linetype = "dashed") +
+  scale_color_brewer(palette = "Dark2") +
   labs(
     title = "Relationship Between G4701 and G4700",
     subtitle = "Colored by Cancer Type with Regression Line",
@@ -102,35 +110,21 @@ ggplot(df, aes(x = G4701, y = G4700, color = CancerType)) +
   ) +
   theme_minimal(base_size = 14) +  # Clean and modern theme
   theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),  # Center and bold the title
-    plot.subtitle = element_text(hjust = 0.5, size = 14),  # Center the subtitle
-    axis.text.x = element_text(size = 12),  # Adjust x-axis text size
-    axis.text.y = element_text(size = 12),  # Adjust y-axis text size
-    legend.position = "top",  # Move legend to the top
-    legend.title = element_text(size = 12),  # Adjust legend title size
-    legend.text = element_text(size = 10),  # Adjust legend text size
-    panel.grid.major = element_line(color = "gray85"),  # Lighten major grid lines
-    panel.grid.minor = element_blank()  # Remove minor grid lines
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),
+    plot.subtitle = element_text(hjust = 0.5, size = 14),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    legend.position = "top",
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    panel.grid.major = element_line(color = "gray85"),
+    panel.grid.minor = element_blank()
   )
 
 
 # -----------------------------------
 # Regression Analysis spliting into training and testing sets
 # -----------------------------------
-
-# Load necessary libraries
-library(readxl)       # For reading Excel files
-library(ggplot2)      # For creating visualizations
-library(dplyr)        # For data manipulation
-library(reshape2)     # For reshaping data (e.g., melt function)
-library(RColorBrewer) # For color palettes in visualizations
-
-# Load the dataset
-file_path <- "C:\\Users\\clob9\\Desktop\\NCI60_dataset.xlsx"
-df <- read_excel(file_path)
-head(df)
-
-# Focus on a subset of cancer types for classification
 selected_cancers <- c("NSCLC", "RENAL", "MELANOMA", "BREAST", "COLON", "OVARIAN", "CNS", "PROSTATE")
 df <- df[df$CancerType %in% selected_cancers, ]
 
@@ -148,7 +142,7 @@ train_data <- df %>%
 
 # Create a testing set with the remaining 20% of each cancer type
 test_data <- df %>%
-  anti_join(train_data, by = "CellLine")  # Assuming "CellLine" is a unique identifier
+  anti_join(train_data, by = "CelLines")  # Assuming "CellLine" is a unique identifier
 
 # Check if all cancer types are present in the testing set
 print("Cancer types in testing set:")
@@ -191,7 +185,10 @@ colnames(df_long) <- c("Actual_CancerType", "Predicted_CancerType", "Probability
 # Print first few rows to check structure
 head(df_long)
 
-# Create a heatmap of predicted probabilities
+
+# -----------------------------------
+# Visualization: Heatmap of Predicted Probabilities (Testing Set)
+# -----------------------------------
 ggplot(df_long, aes(x = Predicted_CancerType, y = Actual_CancerType, fill = Probability)) +
   geom_tile(color = "white") +  # Add white borders between tiles
   scale_fill_gradient(low = "lightblue", high = "darkblue") +  # Gradient color
@@ -202,31 +199,35 @@ ggplot(df_long, aes(x = Predicted_CancerType, y = Actual_CancerType, fill = Prob
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-# Create scatter plot with regression line (G4701 vs. G4700) on the testing set
+# -----------------------------------
+# Visualization: Scatter Plot with Regression Line (G4701 vs. G4700) on the testing set
+# -----------------------------------
 ggplot(test_data, aes(x = G4701, y = G4700)) +
-  geom_point(color = "blue", alpha = 0.6, size = 5) +  # Scatter plot with transparency
-  geom_smooth(method = "lm", color = "red", se = TRUE, linetype = "dashed") +  # Linear regression line
+  geom_point(color = "blue", alpha = 0.6, size = 5) +
+  geom_smooth(method = "lm", color = "red", se = TRUE, linetype = "dashed") +
   labs(
     title = "Linear Regression Between G4701 and G4700 (Testing Set)",
     subtitle = "Regression line with confidence interval",
     x = "G4701 Expression",
     y = "G4700 Expression"
   ) +
-  theme_minimal(base_size = 14) +  # Clean minimal theme
+  theme_minimal(base_size = 14) +
   theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),  # Center and bold the title
-    plot.subtitle = element_text(hjust = 0.5, size = 14),  # Center the subtitle
-    axis.text.x = element_text(size = 12),  # Adjust x-axis text size
-    axis.text.y = element_text(size = 12),  # Adjust y-axis text size
-    panel.grid.major = element_line(color = "gray85"),  # Lighten major grid lines
-    panel.grid.minor = element_blank()  # Remove minor grid lines
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),
+    plot.subtitle = element_text(hjust = 0.5, size = 14),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray85"),
+    panel.grid.minor = element_blank()
   )
 
-# Create scatter plot with regression line (colored by CancerType) on the testing set
+# -----------------------------------
+# Visualization: Scatter plot with regression line (colored by CancerType) on the testing set
+# -----------------------------------
 ggplot(test_data, aes(x = G4701, y = G4700, color = CancerType)) +
-  geom_point(alpha = 0.8, size = 5) +  # Scatter points with transparency
-  geom_smooth(method = "lm", color = "black", se = TRUE, linetype = "dashed") +  # Regression line with confidence interval
-  scale_color_brewer(palette = "Dark2") +  # Use a visually appealing color palette
+  geom_point(alpha = 0.8, size = 5) +
+  geom_smooth(method = "lm", color = "black", se = TRUE, linetype = "dashed") +
+  scale_color_brewer(palette = "Dark2") +
   labs(
     title = "Relationship Between G4701 and G4700 (Testing Set)",
     subtitle = "Colored by Cancer Type with Regression Line",
@@ -235,15 +236,15 @@ ggplot(test_data, aes(x = G4701, y = G4700, color = CancerType)) +
     color = "Cancer Type",
     caption = "Data source: NCI60 dataset"
   ) +
-  theme_minimal(base_size = 14) +  # Clean and modern theme
+  theme_minimal(base_size = 14) +
   theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),  # Center and bold the title
-    plot.subtitle = element_text(hjust = 0.5, size = 14),  # Center the subtitle
-    axis.text.x = element_text(size = 12),  # Adjust x-axis text size
-    axis.text.y = element_text(size = 12),  # Adjust y-axis text size
-    legend.position = "top",  # Move legend to the top
-    legend.title = element_text(size = 12),  # Adjust legend title size
-    legend.text = element_text(size = 10),  # Adjust legend text size
-    panel.grid.major = element_line(color = "gray85"),  # Lighten major grid lines
-    panel.grid.minor = element_blank()  # Remove minor grid lines
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),
+    plot.subtitle = element_text(hjust = 0.5, size = 14),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    legend.position = "top",
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    panel.grid.major = element_line(color = "gray85"),
+    panel.grid.minor = element_blank()
   )
